@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Game.sol": "IU"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Game.sol": {
+			"keccak256": "0xe9d1923f9b2e08e48e8cdbe6d2a7a706b4cbdf9227bf6c7d41a046239043d6bb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1811a6d833314a1c2ceab716160b60805e479490d6be1e6a00e0fb254c1e2c6c",
+				"dweb:/ipfs/QmURTogqp5vStiFBx9QsT9cbTLyv4jyqnosKDmDtDvEZFW"
+			]
+		}
+	},
+	"version": 1
+}

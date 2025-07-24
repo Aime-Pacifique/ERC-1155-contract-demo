@@ -1,0 +1,119 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "getProfile",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "displayName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "bio",
+								"type": "string"
+							}
+						],
+						"internalType": "struct Profile.UserProfile",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "profiles",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "displayName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "bio",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_displayName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_bio",
+						"type": "string"
+					}
+				],
+				"name": "setProfile",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Profile.sol": "Profile"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Profile.sol": {
+			"keccak256": "0x78dab99153b4b6169e1d3ffea5b52756bb47afe91f2d483d7979a88a167e6280",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8df9ee4976b4c511e127f97b06a43b4aec4ff55d878f121bc7387d6b411c6402",
+				"dweb:/ipfs/QmPRHof8o1S5tcwSvGXQ4AYqWh57itq4hQ91GBbztgLNLi"
+			]
+		}
+	},
+	"version": 1
+}

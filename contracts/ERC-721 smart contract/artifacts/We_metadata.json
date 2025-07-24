@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ERC-721 smart contract/Web3Builders.sol": "We"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ERC-721 smart contract/Web3Builders.sol": {
+			"keccak256": "0x17a5eb4033c90679b719d77e3d5b975c2b0a599229537e792a3ca6435b147c6b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f3295ef57411250bc9ae925c380502ca80eddf2fba05259d8197758c0b3d1970",
+				"dweb:/ipfs/Qmd8dMwjXJ4YJhygkiVLMUcbFhEWJz6CAdCsWJY9tVPFGv"
+			]
+		}
+	},
+	"version": 1
+}
