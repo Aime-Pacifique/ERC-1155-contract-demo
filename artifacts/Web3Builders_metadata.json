@@ -442,7 +442,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "maxSupply",
+				"name": "maxPurchasesPerAddress",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -454,21 +454,16 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "maxSupply",
+				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "id",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
+						"name": "",
 						"type": "uint256"
 					}
 				],
-				"name": "mint",
-				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -543,6 +538,24 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "publicMint",
+				"outputs": [],
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -1129,11 +1142,11 @@
 			]
 		},
 		"contracts/ERC-1155 contracts/Web3Builders.sol": {
-			"keccak256": "0xb47040578eced4d75ee57aee0c83fd0c88e39ce6fabd568666d11745e9d8a9e3",
+			"keccak256": "0x4f87675b06495fc4868346a76121b610d0ae622db139b012da8f60446ef3b40e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://730b93c64dce09dae9f7881dd6b7c9424021491c11df93a32bcf3deeabf3ae18",
-				"dweb:/ipfs/QmXLZeitRYgA2GEzUowb3BJrEtd1n3ksHttVzFYXbEcM1q"
+				"bzz-raw://07c6180fe106f6fa82733320fa0228d378ef47bed554f622f12b515507c6bf6b",
+				"dweb:/ipfs/QmUhyw6CXAr8ztZtGiUWuM8X6qaL8MEWtYM2hQgGoFMkjb"
 			]
 		}
 	},

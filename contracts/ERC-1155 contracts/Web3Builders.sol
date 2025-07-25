@@ -18,7 +18,8 @@ contract Web3Builders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
 
     uint256 public  publicPrice= 0.02 ether;    
     uint256 public publicAllowListPrice= 0.01 ether;
-    uint256 public  maxSupply=3;
+    uint256 public  maxSupply=15;
+    uint256 public  maxPurchasesPerAddress=4;
 
     bool allowListMintOpen;
     bool publicMintOpen;
@@ -26,6 +27,9 @@ contract Web3Builders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
     // Setting the allowList mapping
     mapping (address => bool) allowList;
 
+//    Setting the purchasesPerAddress mapping
+
+  mapping (address => uint256) numberOfPurchases;
 
 
 //    modifier  onlyOwner(address account){
@@ -69,33 +73,40 @@ contract Web3Builders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
             allowList[addresses[i]] = true;
         }
     }
+    
+    function mint(uint256 id, uint256 amount) internal {
+
+     require(numberOfPurchases[msg.sender] + amount <= maxPurchasesPerAddress,"You have reached the maximum number of NFTs you can mint");
+    //    Limiting the number of NFTs(types) minted
+       require(id < 2,"You are trying to mint the wrong NFT.");
+      require(totalSupply(id) * amount < maxSupply,"No remaining NFTs");
+      numberOfPurchases[msg.sender] += amount;
+       _mint(msg.sender, id, amount, "");
+       
+
+    }
 
 
     function allowListMint(uint256 id,uint256 amount) public  payable {
 
         require(allowListMintOpen,"Sorry! AllowList mint is not open");
         require(allowList[msg.sender],"Sorry! You are not allowed to mint. Try public mint");
-                require(id < 2,"You are trying to mint the wrong NFT.");
+        require(msg.value == publicAllowListPrice * amount,"Insufficient balance");
 
-                require(totalSupply(id) * amount < maxSupply,"No remaining NFTs");
-                require(msg.value == publicAllowListPrice * amount,"Insufficient balance");
-                _mint(msg.sender, id, amount, "");
+        mint(id, amount);
     }
 
-
-    function mint(uint256 id, uint256 amount)
+    function publicMint(uint256 id, uint256 amount)
         public
         payable 
         
     {
         require(publicMintOpen,"Sorry! publix mint is not open");
-        require(id < 2,"You are trying to mint the wrong NFT.");
-        require(totalSupply(id)* amount < maxSupply,"No remaining NFTs");
         require(msg.value == publicPrice * amount,"Insufficient balance");
-        _mint(msg.sender, id, amount,"");
+        mint( id, amount);
     }
 
-    // Withdrawng
+    // Withdrawing
     function withdraw(address _addr) external  onlyOwner{
         uint256 balance= address(this).balance;
         payable(_addr).transfer(balance);
