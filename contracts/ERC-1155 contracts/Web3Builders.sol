@@ -14,9 +14,17 @@ contract Web3Builders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
         Ownable(initialOwner)
     {}
 
+    
 
-    uint256 public  publicPrice= 0.01 ether;
-    uint256 public  maxSupply=1;
+    uint256 public  publicPrice= 0.02 ether;    
+    uint256 public publicAllowListPrice= 0.01 ether;
+    uint256 public  maxSupply=3;
+
+    bool allowListMintOpen;
+    bool publicMintOpen;
+
+    // Setting the allowList mapping
+    mapping (address => bool) allowList;
 
 
 
@@ -41,8 +49,37 @@ contract Web3Builders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
         _pause();
     }
 
+
     function unpause() public onlyOwner {
         _unpause();
+    }
+
+
+    function edit(
+        bool _allowListMintOpen,
+        bool _publicMintOpen
+    ) external onlyOwner{
+        allowListMintOpen=_allowListMintOpen;
+        publicMintOpen=_publicMintOpen;
+
+    }
+
+    function setAllowList(address[] calldata addresses) external  onlyOwner{
+        for(uint256 i;i <addresses.length;i++){
+            allowList[addresses[i]] = true;
+        }
+    }
+
+
+    function allowListMint(uint256 id,uint256 amount) public  payable {
+
+        require(allowListMintOpen,"Sorry! AllowList mint is not open");
+        require(allowList[msg.sender],"Sorry! You are not allowed to mint. Try public mint");
+                require(id < 2,"You are trying to mint the wrong NFT.");
+
+                require(totalSupply(id) * amount < maxSupply,"No remaining NFTs");
+                require(msg.value == publicAllowListPrice * amount,"Insufficient balance");
+                _mint(msg.sender, id, amount, "");
     }
 
 
@@ -51,12 +88,11 @@ contract Web3Builders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
         payable 
         
     {
-      
-       require(id < 2,"You are trying to mint the wrong NFT.");
+        require(publicMintOpen,"Sorry! publix mint is not open");
+        require(id < 2,"You are trying to mint the wrong NFT.");
         require(totalSupply(id)* amount < maxSupply,"No remaining NFTs");
         require(msg.value == publicPrice * amount,"Insufficient balance");
         _mint(msg.sender, id, amount,"");
-
     }
 
     // Withdrawng
